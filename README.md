@@ -183,4 +183,5 @@ Running module as module name:  __main__
 Module name from sys.modules:  <module 'moduleB' from '/home/user/learning_main/src/packageA/moduleB.py'>
 ```
 
-
+## Testing
+python -m unittest tests/test_moduleA.py
