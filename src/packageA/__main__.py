@@ -4,8 +4,7 @@ import sys
 # Third party imports
 
 # Local imports
-# It is required to import via relative imports, or through 
-# absolute path like packageA.moduleA
+# It is required to import via relative imports, or through absolute path like packageA.moduleA
 from .moduleA import main # Optional
 from packageA.moduleA import main # Preferred
 

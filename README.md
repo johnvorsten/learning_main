@@ -1,10 +1,22 @@
-## Build instructions
+## Movivational questions
+* Why does executing a module within a package like `python -m moduleA` or `python ./packageA/moduleA.py` cause an import error `ImportError: attempted relative import with no known parent package`
+    * The solution is to add relative or fully qualified imports (`from .modulaA import main`), but why is this the case?
+* Why are relative imports required when trying to execute a module  [as a script](https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts)? 
+    * When executing a module as a package, you must use either relative or fully qualified names when importing modules within a package (see documentation)[https://docs.python.org/3/tutorial/modules.html#intra-package-references]
+* What happens if we try to run a package without the -m switch?
+* What happens if we try to run a module without the -m switch?
+* What happens if we try to run a module without a fully qualified package path? (example: `python -m moduleA` versus `python -m packageA.moduleA`)
+* Should I keep the main() function in __main__.py or somewhere else?
+    * When a package name is supplied instead of a normal module, the interpreter will execute <pkg>.__main__ as the main module.
 
 ## What does the -m switch do?
-From the [docs](https://docs.python.org/3/using/cmdline.html#cmdoption-m): Search sys.path for the named module and execute its contents as the __main__ module.
+The [-m switch](https://docs.python.org/3/using/cmdline.html#cmdoption-m) searches your sys.path environment variable (not your system environment variable) for the named module, then executes that module as the __main__ module.\
+*sys.path* is not the same as your system *path* environment variable. The *sys.path* environment variable includes locations where python looks for importable packages.
 
-## Best documentation reference
-(this documentation)[https://docs.python.org/3/tutorial/modules.html#tut-packages]
+## Documentation reference
+Packaging structure: https://docs.python.org/3/tutorial/modules.html#tut-packages
+
+Command line documentation: https://docs.python.org/3/using/cmdline.html#cmdoption-m
 
 ## Learning instructions
 Example #1 - Impacts of importing modules, packages, and individual files
@@ -16,6 +28,8 @@ Example #1 - Impacts of importing modules, packages, and individual files
 1. Import packageA (as a package through __init__.py) with `python -c "import packageA"`
 1. Navigate to package directory `cd ./packageA`
 1. Import moduleA.py with (as a file individually) `python -c "import moduleA"` (did you expect this to work?)
+
+Example #1 output:
 ```bash
 user@computer:~/learning_main $ cd ./src
 
@@ -59,6 +73,8 @@ Example #2 - Import a module not reliant on other modules within a package
 1. Enter a python interpreter through your command line `python`
 1. Import moduleB into your interpreter instance `import moduleB`
 1. Print the __name__ variable of the imported moduleB `print(moduleB.__name__)`
+
+Example #2 output:
 ```python
 Python 3.7.10 [MSC v.1916 64 bit (AMD64)]
 Type "help", "copyright", "credits" or "license" for more information.
@@ -83,6 +99,8 @@ Example #3 - Using the python interpreter (without -m switch) execute an individ
 1. Change into packageA directory `cd packageA`. This will be required to demonstrate executing python files as modules outside of a package scope
 1. Execute moduleA.py (as the __main__ module) with `python -m moduleA` (did you expect this to work?)
 1. Execute moduleB.py (as the __main__ module) with `python -m moduleB` (Explain why this works)
+
+Example #3 output:
 ```bash
 user@computer:~/learning_main/src/packageA>cd ../..
 
@@ -166,20 +184,3 @@ Module name from sys.modules:  <module 'moduleB' from '/home/user/learning_main/
 ```
 
 
-## Issues
-* With location at `./src`, and `python -m packageA`, why can I not have `from moduleA import main` in __main__.py?
-The solution is to add relative imports `from .modulaA import main`, but why is this the case?
-When executing a module as a package, you must use either relative or fully qualified names when importing modules within a package (see documentation)[https://docs.python.org/3/tutorial/modules.html#intra-package-references]
-Note that relative imports are based on the name of the current module. Since the name of the main module is always "__main__", modules intended for use as the main module of a Python application must always use absolute imports.
-
-* What happens if we try to run a package without the -m switch?
-
-* Should I keep the main() function in __main__.py or somewhere else?
-
-
-## Motivation
-
-Calling a module with the -m switch:
-
-Calling a package with the -m switch:
-Package names are also permitted. When a package name is supplied instead of a normal module, the interpreter will execute <pkg>.__main__ as the main module. This behavior is deliberately similar to the handling of directories and zip-files that are passed to the interpreter as the script argument.
