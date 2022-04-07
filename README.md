@@ -185,3 +185,7 @@ Module name from sys.modules:  <module 'moduleB' from '/home/user/learning_main/
 
 ## Testing
 python -m unittest tests/test_moduleA.py
+
+## Calling as an installed package
+Install this package using `python -m build .`
+Call the package once it is installed with `python -m packageA` or `python -m packageA.moduelA`
