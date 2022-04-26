@@ -1,3 +1,5 @@
+"""Execute package as __main__ by printing the module name, file name, sys
+modules, and importing a package, """
 # Python imports
 import sys
 
@@ -5,8 +7,9 @@ import sys
 
 # Local imports
 # It is required to import via relative imports, or through absolute path like packageA.moduleA
-from .moduleA import main # Optional
 from packageA.moduleA import main # Preferred
+from .moduleA import main # Optional
+
 
 # Declarations
 

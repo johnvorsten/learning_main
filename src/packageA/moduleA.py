@@ -1,27 +1,6 @@
 """
-Expected output from running file
-module name:
-__main__
-Module name from sys.modules:
-<module '__main__' from 'moduleA.py'>
-File name:
-moduleA.py
-Hello world from moduleA.main()
-
-Expected output from importing file
-module name:
-moduleA
-Module name from sys.modules:
-<module 'moduleA' from 'C:\\Users\\Jvorsten\\PythonProjects\\learning_main\\src\\moduleA\\moduleA.py'>
-File name:
-C:\\Users\\Jvorsten\\PythonProjects\\learning_main\\src\\moduleA\\moduleA.py
-
-Differences
-First, the module __name__ is __main__ when run as a module, versus the module
-name moduleA when imported
-The full file path is displayed when importing as a module
-
-
+Print module name, file name, and sys.modules when this module
+is run as __main__, imported, or part of a package
 """
 
 # Python imports
@@ -37,7 +16,8 @@ from .moduleB import print_from_moduleB
 #%%
 
 def main(name:str) -> int:
-    print("Hello world from module name {} function main()".format(name))
+    """Print the module name (maybe it is __main__)"""
+    print(f"Hello world from module name {name} function main()")
     return 0
 
 if __name__ == '__main__':
@@ -55,4 +35,3 @@ elif __name__ == "packageA.moduleA":
     print("(importing as module within package) this file: ", __file__)
     print("Running module as module name: ", __name__)
     print("Module name from sys.modules: ", sys.modules[__name__])
-    

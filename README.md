@@ -1,4 +1,4 @@
-## Movivational questions
+## Motivational questions
 * Why does executing a module within a package like `python -m moduleA` or `python ./packageA/moduleA.py` cause an import error `ImportError: attempted relative import with no known parent package`
     * The solution is to add relative or fully qualified imports (`from .modulaA import main`), but why is this the case?
 * Why are relative imports required when trying to execute a module  [as a script](https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts)? 
@@ -185,7 +185,9 @@ Module name from sys.modules:  <module 'moduleB' from '/home/user/learning_main/
 
 ## Testing
 python -m unittest tests/test_moduleA.py
+coverage run -m unittest tests/test_moduleA.py
+pylint -r n src/packageA
 
 ## Calling as an installed package
 Install this package using `python -m build .`
-Call the package once it is installed with `python -m packageA` or `python -m packageA.moduelA`
+Call the package once it is installed with `python -m packageA` or `python -m packageA.moduleA`

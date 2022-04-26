@@ -10,7 +10,7 @@ import subprocess
 # Local imports
 
 # Declarations
-TEST_DIRECTORY = os.getcwd()
+TEST_DIRECTORY = os.getcwd() # /learning_main/
 #%%
 
 class moduleATest(unittest.TestCase):

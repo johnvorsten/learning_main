@@ -1,3 +1,4 @@
+"""Demonstrate importing a package"""
 # Python imports
 import sys
 

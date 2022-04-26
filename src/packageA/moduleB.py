@@ -1,3 +1,5 @@
+"""Module is part of a package but does not rely on other modules within the package
+This script/module can be executed stand-alone"""
 # Python imports
 import sys
 
@@ -9,6 +11,7 @@ import sys
 
 #%%
 def print_from_moduleB():
+    """Let the user know we are printing from moduleB"""
     print("Printing something from moduleB")
     return None
 
@@ -30,4 +33,3 @@ elif __name__ == "packageA.moduleB":
     print("(importing as module within package) this file: ", __file__)
     print("Running module as module name: ", __name__)
     print("Module name from sys.modules: ", sys.modules[__name__])
-
