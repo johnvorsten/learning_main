@@ -1,5 +1,10 @@
 """Module is part of a package but does not rely on other modules within the package
-This script/module can be executed stand-alone"""
+This script/module can be executed stand-alone
+Execute moduleB.py (standalone) with `python ./src/packageA/moduleB.py`
+Execute moduleB.py (as the __main__ module) with `python -m packageA.moduleB`
+While inside the packageA directory, execute moduleB.py
+    (as the __main__ module) with `python -m moduleB` (Explain why this works)
+"""
 # Python imports
 import sys
 
