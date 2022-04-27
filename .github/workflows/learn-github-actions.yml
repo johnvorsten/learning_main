@@ -4,13 +4,6 @@ on:
     paths:
       - 'src/**/**.py'
       - 'tests/**.py'
-    paths-ignore:
-      - '.vscode/**'
-      - '.gitignore'
-      - 'pyproject.toml'
-      - 'README.md'
-      - 'requirements*.txt'
-      - 'setup.cfg'
     branches:
       - main
 jobs:
