@@ -1,0 +1,30 @@
+name: pylint
+on:
+  push:
+    # This action will only run when .py files are modified in src/ or tests/ directories
+    # AND when pushed to the main branch
+    paths:
+      - 'src/**/**.py'
+      - 'tests/**.py'
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: Set up python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint
+    - name: Analyze the code with pylint
+      run: |
+        pylint --reports n src/packageA
+        pylint --reports n tests/
