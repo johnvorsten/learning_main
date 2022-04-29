@@ -1,0 +1,32 @@
+name: Python app
+
+on:
+  push:
+    paths:
+      - 'src/**/*.py'
+      - tests/*.py'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up python 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.8"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # No dependencies to install for this package
+        # if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+    - name: Test with unittest
+      run: |
+        python -m unittest
+      
