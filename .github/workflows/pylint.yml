@@ -4,8 +4,8 @@ on:
     # This action will only run when .py files are modified in src/ or tests/ directories
     # AND when pushed to the main branch
     paths:
-      - 'src/**/**.py'
-      - 'tests/**.py'
+      - 'src/**/*.py'
+      - 'tests/*.py'
     branches:
       - main
 jobs:
