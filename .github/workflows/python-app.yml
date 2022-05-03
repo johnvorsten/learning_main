@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'src/**/*.py'
-      - tests/*.py'
+      - 'tests/*.py'
     branches:
       - main
   pull_request:
