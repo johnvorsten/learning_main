@@ -1,4 +1,4 @@
-name: pylint
+name: Linting
 on:
   push:
     # This action will only run when .py files are modified in src/ or tests/ directories
