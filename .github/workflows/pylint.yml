@@ -8,10 +8,11 @@ on:
       - 'tests/*.py'
     branches:
       - main
-    pull_request:
-      # This will run on pull requests also, regardless of change directory
-      branches:
-        - main
+      
+  pull_request:
+    # This will run on pull requests also, regardless of change directory
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
