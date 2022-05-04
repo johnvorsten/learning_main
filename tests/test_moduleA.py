@@ -13,8 +13,9 @@ import subprocess
 TEST_DIRECTORY = os.getcwd() # /learning_main/
 #%%
 
-class moduleATest(unittest.TestCase):
+class ModuleATest(unittest.TestCase):
     """Tests for modeulA.py"""
+
     def setUp(self):
         """Init"""
         # Reset current working directory
@@ -37,7 +38,7 @@ class moduleATest(unittest.TestCase):
         directory = os.path.join(TEST_DIRECTORY, 'src')
         os.chdir(directory)
         args = ['python', '-m', 'packageA.moduleA']
-        completed = subprocess.run(args, cwd=dir, capture_output=True, check=False)
+        completed = subprocess.run(args, cwd=directory, capture_output=True)
         # Process should complete with 0 return code
         self.assertEqual(completed.returncode, 0)
 
@@ -49,7 +50,7 @@ class moduleATest(unittest.TestCase):
         directory = os.path.join(TEST_DIRECTORY, 'src', 'packageA')
         os.chdir(directory)
         args = ['python', '-m', 'moduleA']
-        completed = subprocess.run(args, cwd=dir, capture_output=True, check=False)
+        completed = subprocess.run(args, cwd=directory, capture_output=True)
         # Process should complete with 1 return code
         self.assertEqual(completed.returncode, 1)
         self.assertTrue('ImportError' in str(completed.stderr))
@@ -62,11 +63,10 @@ class moduleATest(unittest.TestCase):
         directory = os.path.join(TEST_DIRECTORY, 'src')
         os.chdir(directory)
         args = ['python', '-m', 'packageA']
-        completed = subprocess.run(args, cwd=dir, capture_output=True, check=False)
+        completed = subprocess.run(args, cwd=directory, capture_output=True)
         # Process should complete with 0 return code
         self.assertEqual(completed.returncode, 0)
         return None
 
 if __name__ == '__main__':
     unittest.main()
-# %%
