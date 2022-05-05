@@ -1,3 +1,5 @@
+[![Tests](https://github.com/johnvorsten/learning_main/actions/workflows/python-app.yml/badge.svg)](https://github.com/johnvorsten/learning_main/actions/workflows/python-app.yml) [![Quality Status](https://github.com/johnvorsten/learning_main/actions/workflows/pylint.yml/badge.svg)](https://github.com/johnvorsten/learning_main/actions/workflows/pylint.yml) ![coverage](https://img.shields.io/static/v1?label=Coverage&message=97%&color=green)
+
 ## Motivational questions
 * Why does executing a module within a package like `python -m moduleA` or `python ./packageA/moduleA.py` cause an import error `ImportError: attempted relative import with no known parent package`
     * The solution is to add relative or fully qualified imports (`from .modulaA import main`), but why is this the case?
