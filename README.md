@@ -188,7 +188,8 @@ Module name from sys.modules:  <module 'moduleB' from '/home/user/learning_main/
 ## Testing
 python -m unittest tests/test_moduleA.py
 coverage run -m unittest tests/test_moduleA.py
-pylint -r n src/packageA
+pylint --reports n src/packageA
+pylint --reports n tests/
 
 ## Calling as an installed package
 Install this package using `python -m build .`

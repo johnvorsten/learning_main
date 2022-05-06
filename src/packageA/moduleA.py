@@ -13,12 +13,14 @@ from .moduleB import print_from_moduleB
 
 # Declarations
 
-#%%
+# %%
 
-def main(name:str) -> int:
+
+def main(name: str) -> int:
     """Print the module name (maybe it is __main__)"""
     print(f"Hello world from module name {name} function main()")
     return 0
+
 
 if __name__ == '__main__':
     print("(probably executing directly) this file: ", __file__)
